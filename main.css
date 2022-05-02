@@ -1,0 +1,106 @@
+:root {
+  --bgColor: #02021b;
+  --blueColor: #004471;
+  --purpleColor: #7e006b;
+  --grayColor: rgb(180, 180, 180);
+  --whiteColor: antiquewhite;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+  list-style: none;
+  text-decoration: none;
+}
+body {
+  background-color: var(--bgColor);
+  color: var(--whiteColor);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  overflow: hidden;
+}
+h1 {
+  margin: 2rem;
+  text-align: center;
+}
+.toggle-btn {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin: 10px 0;
+  width: 15%;
+  margin-top: 3rem;
+}
+.toggle {
+  visibility: hidden;
+}
+.label {
+  background-color: var(--grayColor);
+  width: 60px;
+  height: 30px;
+  border-radius: 50px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  margin-right: 1rem;
+  transition: all 0.5s ease-in-out;
+}
+.toggle:checked + .label {
+  background-color: var(--purpleColor);
+  width: 60px;
+  height: 30px;
+  border-radius: 50px;
+}
+.label .ball {
+  height: 25px;
+  width: 25px;
+  background-color: var(--whiteColor);
+  position: absolute;
+  border-radius: 50%;
+  animation: animateOff 0.4s linear forwards;
+}
+
+.toggle:checked + .label .ball {
+  animation: animateOn 0.4s linear forwards;
+}
+
+@keyframes animateOn {
+  0% {
+    transform: translateX(0) scale(1);
+  }
+  50% {
+    transform: translateX(20px) scale(1.2);
+  }
+  100% {
+    transform: translateX(33px) scale(1);
+  }
+}
+@keyframes animateOff {
+  0% {
+    transform: translateX(30px) scale(1);
+  }
+  50% {
+    transform: translateX(20px) scale(1.2);
+  }
+  100% {
+    transform: translateX(0) scale(1);
+  }
+}
+@media screen and (max-width: 1200px) {
+  .toggle-btn {
+    width: 20%;
+  }
+}
+@media screen and (max-width: 600px) {
+  h1 {
+    font-size: 1.3rem;
+  }
+  .toggle-btn {
+    width: 50%;
+  }
+}
